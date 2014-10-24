@@ -1,5 +1,7 @@
 package misc;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Scanner;
 
 class DivideByZero extends Exception {
@@ -38,5 +40,6 @@ public class CustomException {
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}
+		System.out.println(new Timestamp(new Date().getTime()));
 	}
 }

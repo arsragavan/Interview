@@ -7,11 +7,11 @@ public class IsPalindromePossible {
 
 	public static boolean isPossible(String str) {
 		HashSet<Character> set = new HashSet<>();
-		for (int i = 0;i<str.length();i++) {
+		for (int i = 0; i < str.length(); i++) {
 			Character ch = str.charAt(i);
 			if (set.contains(ch))
 				set.remove(ch);
-			else 
+			else
 				set.add(ch);
 		}
 		if (set.size() <= 1)
@@ -20,10 +20,8 @@ public class IsPalindromePossible {
 	}
 	public static void main(String[] args) {
 		System.out.println(isPossible("mmaadda"));
-		String str1  = "hello";
-		String str2 = str1;
+		String str1 = new String("hello");
+		String str2 = new String("hello");
 		System.out.println(str1.hashCode() == str2.hashCode());
-
 	}
-
 }
