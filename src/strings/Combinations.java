@@ -15,9 +15,10 @@ public class Combinations {
 						output + input.charAt(i));
 		}
 	}
+
 	public static void main(String[] args) {
 
-		combinations("ab", 2, 0, "");
+		combinations("abc", 2, 0, "");
 
 	}
 

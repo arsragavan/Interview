@@ -12,8 +12,18 @@ package Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ThreeSum {
+
+	public static void twoDiff(int[] a, int diff) {
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < a.length; i++)
+			map.put(diff + a[i], i);
+		for (int i = 0; i < a.length; i++)
+			if (map.containsKey(a[i]) || map.containsKey(-a[i]))
+				System.out.println(a[i] + " " + map.get(a[i]));
+	}
 
 	public static void twoSum(int[] a, int sum) {
 		HashMap<Integer, Integer> map = new HashMap<>();
@@ -57,6 +67,7 @@ public class ThreeSum {
 			}
 		}
 	}
+
 	public static void sumthreeArrays(int[] a, int[] b, int[] c, int sum) {
 		int i = 0;
 		HashMap<Integer, Integer> hashmap = new HashMap<>();
@@ -91,6 +102,7 @@ public class ThreeSum {
 			p--;
 		}
 	}
+
 	public static long maxProd(int[] a) {
 		long prod = 1;
 		int i = 0, min = Integer.MAX_VALUE;
@@ -107,13 +119,15 @@ public class ThreeSum {
 
 	public static void main(String args[]) {
 
-		int[] a = {1, 2, 3, 4, 5, 6};
-		int[] b = {7, 8, 9, 10, 11, 12};
-		int[] c = {-1, -2, -3, -4, -5, -6};
+		int[] a = { 1, 2, 3, 4, 5, 6 };
+		int[] b = { 7, 8, 9, 10, 11, 12 };
+		int[] c = { -1, -2, -3, -4, -5, -6 };
 
-		sumthreeArrays(a, b, c, 7);
+		// sumthreeArrays(a, b, c, 7);
 
-		int[] arr = {0, 7, 0, 2, 3, -2, -7};
-		twoSum(arr, 9);
+		int[] arr = { 0, 7, 0, 2, 3, -2, -7 };
+		// twoSum(arr, 9);
+
+		twoDiff(arr, -4);
 	}
 }

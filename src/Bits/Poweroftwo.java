@@ -11,13 +11,15 @@
 
 package Bits;
 
-
 public class Poweroftwo {
-    public static void main(String args[]) {
-        int n=-64;
-        if((n&n-1) == 0)
-            System.out.println("Yes");
-        System.out.println(n^1);
-    }
+	public static void main(String args[]) {
+		int n = 64;
+		if ((n & n - 1) == 0) {
+			System.out.println("Yes");
+			// position of bit set
+			System.out.println(Math.log(n) / Math.log(2) + 1);
 
+		}
+
+	}
 }
