@@ -16,7 +16,9 @@ public class TreeTest {
 
 		BST lca = root.lca(root, 2, 1);
 
-		System.out.println(lca.value);
+		// System.out.println(lca.value);
+
+		System.out.println(root.inorderCommas(root, ""));
 
 		// root.iterativePostorderWith2Stacks(root);
 

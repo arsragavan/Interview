@@ -34,8 +34,9 @@ public class NextGreatestNum {
 		}
 		return null;
 	}
+
 	public static void main(String[] args) {
-		System.out.println("Next greatest = " + getNextHighest(9909090));
+		System.out.println("Next greatest = " + getNextHighest(12365));
 
 	}
 

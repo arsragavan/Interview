@@ -43,6 +43,17 @@ public class BST {
 		}
 	}
 
+	public String inorderCommas(BST root, String inOrder) {
+		if (root != null) {
+			inOrder = inorderCommas(root.left, inOrder);
+			if (inOrder.length() > 0)
+				inOrder = inOrder.substring(0, inOrder.length() - 1) + ",";
+			inOrder = inOrder + root.value + ".";
+			inOrder = inorderCommas(root.right, inOrder);
+		}
+		return inOrder;
+	}
+
 	public void inorder(BST root) {
 		if (root != null) {
 			inorder(root.left);
