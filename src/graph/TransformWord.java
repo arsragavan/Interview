@@ -8,29 +8,21 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-class Word {
-	String original;
-	String parent;
-
-	public Word(String original, String parent) {
-		this.original = original;
-		this.parent = parent;
-	}
-
-}
-
 public class TransformWord {
 
 	public static void path(String input, String output, Set<String> set) {
 		Map<String, List<String>> map = constructGraph(set);
 		Map<String, String> path = new HashMap<String, String>();
-		Queue<Word> queue = new LinkedList<>();
+		Map<String, String> parentWord = new HashMap<String, String>();
+
+		Queue<String> queue = new LinkedList<>();
 		String parent = null;
-		queue.add(new Word(input, parent));
+		queue.add(input);
+		parentWord.put(input, parent);
+
 		while (!queue.isEmpty()) {
-			Word word = queue.remove();
-			input = word.original;
-			parent = word.parent;
+			input = queue.remove();
+			parent = parentWord.get(input);
 			if (!path.containsKey(input)) {
 				path.put(input, parent);
 				if (input.equals(output)) {
@@ -43,8 +35,10 @@ public class TransformWord {
 				}
 				List<String> list = map.get(input);
 				if (list != null) {
-					for (String child : list)
-						queue.add(new Word(child, input));
+					for (String child : list) {
+						queue.add(child);
+						parentWord.put(child, input);
+					}
 				}
 
 			}

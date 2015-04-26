@@ -27,21 +27,6 @@ public class Permutations {
 						str.substring(0, i) + str.substring(i + 1, n));
 	}
 
-	// if we have to deal with the duplicates also
-	public static HashSet<String> permutation(String prefix, String str,
-			HashSet<String> set) {
-		int n = str.length();
-		if (n == 0) {
-			set.add(prefix);
-		} else {
-			for (int i = 0; i < n; i++)
-				set = permutation(prefix + str.charAt(i), str.substring(0, i)
-						+ str.substring(i + 1, n), set);
-		}
-		return set;
-
-	}
-
 	public static Set<String> dpPermutation(String prefix, String str,
 			Map<String, Set<String>> map) {
 
@@ -59,11 +44,11 @@ public class Permutations {
 
 	public static void main(String args[]) {
 
-		permutation("", "ABC");
+		// permutation("", "ABC");
 
 		HashSet<String> set = new HashSet<>();
-		set = permutation("", "ABAC", set);
-		System.out.println(set);
+		// set = permutation("", "ABAC", set);
+		// System.out.println(set);
 
 	}
 

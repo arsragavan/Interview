@@ -1,55 +1,30 @@
 package hr;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
-
 public class Solution {
+	public static double pow(double x, int n) {
+		double factor = 1;
+		if (n == Integer.MAX_VALUE) {
+			factor = x;
+			n--;
+		}
+		return factor * pow(x, n, new Double[Math.abs(n) + 1]);
+	}
+
+	public static double pow(double x, int n, Double[] p) {
+		if (n < 0)
+			return 1 / pow(x, n * (-1));
+		else if (p[n] == null) {
+			if (n == 0)
+				p[n] = 1.0;
+			else if (n == 1)
+				p[n] = x;
+			else
+				p[n] = pow(x, n / 2, p) * pow(x, n - (n / 2), p);
+		}
+		return p[n];
+	}
 
 	public static void main(String[] args) {
-		/*
-		 * Enter your code here. Read input from STDIN. Print output to STDOUT.
-		 * Your class should be named Solution.
-		 */
-		Scanner scanner = new Scanner(System.in);
-		int n = scanner.nextInt();
-		Map<Integer, List<Integer>> map = new TreeMap<>();
-		for (int i = 0; i < n; i++) {
-			int k = scanner.nextInt();
-			List<Integer> list = new ArrayList<>();
-			for (int j = 0; j < k; j++)
-				list.add(scanner.nextInt());
-			Iterator<Integer> iterator = list.iterator();
-			while (iterator.hasNext()) {
-				Integer head = iterator.next();
-				if (!map.containsKey(head))
-					break;
-				iterator.remove();
-			}
-			if (list.size() > 0)
-				map.put(list.get(0), list);
-		}
-		System.out.println("Output");
-		while (map.size() > 0) {
-			Integer key = map.keySet().iterator().next();
-			List<Integer> list = map.get(key);
-			map.remove(key);
-			list.remove(key);
-			Iterator<Integer> iterator = list.iterator();
-			while (iterator.hasNext()) {
-				Integer head = iterator.next();
-				if (!map.containsKey(head))
-					break;
-				iterator.remove();
-			}
-			if (list.size() > 0)
-				map.put(list.get(0), list);
-			System.out.print(key + " ");
-		}
+		System.out.println(pow(0.00001, 2147483647));
 	}
 }
-// 29 3 35 9 88 35 39 8 27 12 65
-// 29 3 88 35 9 39 8 27 12 65
