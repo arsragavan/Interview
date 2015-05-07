@@ -148,7 +148,7 @@ public class BST {
 		}
 	}
 
-	public void levelOrder(BST root, int level, int height) {
+	public void levelOrder(BST root) {
 		if (root == null) {
 			return;
 		}

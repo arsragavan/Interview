@@ -13,7 +13,7 @@ public class KadaneMaxSum {
 	}
 
 	public static void main(String[] args) {
-		int[] a = { -11, -2, -3, -1, -4, -17, 100, -1, 2 };
+		int[] a = { -11, -2, -3, -1, -4, -17, -100, -1, -2 };
 		System.out.println(maxSubSum(a));
 
 	}
